@@ -7,7 +7,7 @@ on:
   watch:
     types: started
   push:
-    branches: [ master ]
+    branches: [ main ]
   repository_dispatch:
     types: sync--scripts
 jobs:
@@ -20,12 +20,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-
+ 
       - name: sync sync-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
           source_repo: "https://github.com/srcrs/UnicomTask.git"
-          source_branch: "master"
+          source_branch: "main"
           destination_branch: "master"
           github_token: ${{ secrets.PAT }}
