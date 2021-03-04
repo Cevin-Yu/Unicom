@@ -1,5 +1,5 @@
 # File: .github/workflows/repo-sync.yml
-name: sync-LXK9301-scripts
+name: 同步脚本
 on:
   schedule:
     - cron: '1 0,15 * * *'
@@ -21,11 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync LXK9301-scripts
+      - name: sync sync-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://gitee.com/lxk0301/jd_scripts.git"
+          source_repo: "https://github.com/srcrs/UnicomTask.git"
           source_branch: "master"
           destination_branch: "master"
           github_token: ${{ secrets.PAT }}
