@@ -1,13 +1,15 @@
 name: UnicomTask
 
 on:
-  push:
-    branches: main
-  gollum:
-  workflow_dispatch:
   schedule:
-    - cron: '30 23 * * *'
-
+    - cron: '1 0,15 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  push:
+    branches: [ main ]
+  repository_dispatch:
+    types: sync--scripts
 jobs:
   deploy:
 
